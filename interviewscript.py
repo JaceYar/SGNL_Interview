@@ -1,10 +1,19 @@
 import requests
+#Fiie: interviewscript.py
+#Author: Jace Yarborough
+#Purpose: This file will add the 5 already set up users 
+#in okta to the remediation group and then delete those
+#same 5 users.
+#Too run just insert api token into empty API Token variable
 
-# -----------------------------
-# CONFIG — update these values
-# -----------------------------
-OKTA_DOMAIN = "https://trial-2529920.okta.com"  
-API_TOKEN = ""                # potentially make more secure by not including api or domain
+# CONFIG — update these values!!!
+
+OKTA_DOMAIN = "https://trial-2529920.okta.com" 
+
+
+API_TOKEN = ""                # api key in email from jace_yarborough1@baylor.edu
+
+
 GROUP_NAME = "Remediation"                       # The group we target
 USER_EMAIL_PREFIX = "sgnl-training+"        
 USER_EMAIL_SUFFIX = "@sgnl.ai"                  
@@ -83,5 +92,6 @@ if __name__ == "__main__":
 
     print("\n--- Removing users from Remediation group ---")
     remove_users_from_group(group_id, user_ids)
+
 
 
