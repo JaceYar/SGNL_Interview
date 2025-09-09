@@ -8,3 +8,13 @@ If any issues email me at jace_yarborough1@baylor.edu and will have it fixed wit
 
 
 Inserted People
+![People](People.png)
+
+
+Inserted Group
+![Groups](Groups.png)
+
+
+Logs For script inserting people
+![Logs](Logs.png)
+
