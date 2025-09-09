@@ -3,21 +3,21 @@ import requests
 # -----------------------------
 # CONFIG — update these values
 # -----------------------------
-OKTA_DOMAIN = "https://trial-2529920.okta.com"   # Your Okta domain
-API_TOKEN = "0000S5RKUrLLJtHdziz1wZAeI5bTNpBrB4R7QJq2kF"                # Replace with your API token
+OKTA_DOMAIN = "https://trial-2529920.okta.com"  
+API_TOKEN = "0000S5RKUrLLJtHdziz1wZAeI5bTNpBrB4R7QJq2kF"                # potentially make more secure by not including api or domain
 GROUP_NAME = "Remediation"                       # The group we target
-USER_EMAIL_PREFIX = "sgnl-training+"             # User email format prefix
-USER_EMAIL_SUFFIX = "@sgnl.ai"                   # User email format suffix
-NUM_USERS = 5                                    # How many users we created
+USER_EMAIL_PREFIX = "sgnl-training+"        
+USER_EMAIL_SUFFIX = "@sgnl.ai"                  
+NUM_USERS = 5                               
 
 HEADERS = {
     "Authorization": f"SSWS {API_TOKEN}",
     "Content-Type": "application/json"
 }
 
-# -----------------------------
+
 # FUNCTIONS
-# -----------------------------
+
 def get_group_id():
     """Fetch the group ID for the Remediation group"""
     url = f"{OKTA_DOMAIN}/api/v1/groups?q={GROUP_NAME}"
@@ -47,9 +47,9 @@ def add_users_to_group(group_id, user_ids):
         url = f"{OKTA_DOMAIN}/api/v1/groups/{group_id}/users/{uid}"
         resp = requests.put(url, headers=HEADERS)
         if resp.status_code in [200, 204]:
-            print(f"✅ Added user {uid} to group")
+            print(f" Added user {uid} to group")
         else:
-            print(f"❌ Failed to add {uid}: {resp.text}")
+            print(f" Failed to add {uid}: {resp.text}")
 
 def remove_users_from_group(group_id, user_ids):
     """Remove each user from the Remediation group"""
@@ -63,9 +63,9 @@ def remove_users_from_group(group_id, user_ids):
         else:
             print(f"❌ Failed to remove {uid}: {resp.text}")
 
-# -----------------------------
+
 # MAIN
-# -----------------------------
+
 if __name__ == "__main__":
     group_id = get_group_id()
 
@@ -83,3 +83,4 @@ if __name__ == "__main__":
 
     print("\n--- Removing users from Remediation group ---")
     remove_users_from_group(group_id, user_ids)
+
