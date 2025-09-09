@@ -4,7 +4,7 @@ import requests
 # CONFIG — update these values
 # -----------------------------
 OKTA_DOMAIN = "https://trial-2529920.okta.com"  
-API_TOKEN = "0000S5RKUrLLJtHdziz1wZAeI5bTNpBrB4R7QJq2kF"                # potentially make more secure by not including api or domain
+API_TOKEN = ""                # potentially make more secure by not including api or domain
 GROUP_NAME = "Remediation"                       # The group we target
 USER_EMAIL_PREFIX = "sgnl-training+"        
 USER_EMAIL_SUFFIX = "@sgnl.ai"                  
@@ -83,4 +83,5 @@ if __name__ == "__main__":
 
     print("\n--- Removing users from Remediation group ---")
     remove_users_from_group(group_id, user_ids)
+
 
