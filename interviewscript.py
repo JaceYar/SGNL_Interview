@@ -8,10 +8,13 @@ import requests
 
 # CONFIG — update these values!!!
 
-OKTA_DOMAIN = "https://trial-2529920.okta.com" 
 
 
-API_TOKEN = ""                # api key in email from jace_yarborough1@baylor.edu
+#insert ockta domain below
+OKTA_DOMAIN = "" 
+
+# api key in email from jace_yarborough1@baylor.edu
+API_TOKEN = ""                
 
 
 GROUP_NAME = "Remediation"                       # The group we target
@@ -92,6 +95,7 @@ if __name__ == "__main__":
 
     print("\n--- Removing users from Remediation group ---")
     remove_users_from_group(group_id, user_ids)
+
 
 
 
